@@ -1,0 +1,139 @@
+@import url(https://fonts.google.com/specimen/Barlow+Semi+Condensed);
+
+:root{
+    --violet: hsl(263, 55%, 52%);
+    --dark-blue: hsl(219, 29%, 14%);
+    --dark-grayish-blue: hsl(217, 19%, 35%);
+    --white: hsl(0, 0%, 100%);
+    --gray: hsl(0, 0%, 81%);
+    --light-gray: hsl(210, 46%, 95%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--light-gray);
+    font-size: 13px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 500;
+}
+
+.container{
+    max-width: 1440px;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas: 
+    "cardPrimary cardPrimary cardGrey cardLong"
+    "cardLight cardDark cardDark cardLong";
+    grid-template-columns: repeat(4, 1fr);
+
+
+}
+
+.card{
+    background-color: var(--white);
+    border-radius: 1rem;
+    color: var(--dark-grayish-blue);
+    padding: 1rem;
+}
+
+.card.cardPrimary{
+    background-color: var(--violet);
+    background-image: url(images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: 88% 0%;
+    color: var(--light-gray);
+    grid-area: cardPrimary;
+}
+
+.cardLong{
+    background-color: whitesmoke;
+    grid-area: cardLong;
+}
+
+.card.cardGrey{
+    background-color: var(--dark-grayish-blue);
+    color: var(--light-gray);
+    grid-area: cardGrey;
+}
+
+.card.cardDark{
+    background-color: var(--dark-blue);
+    color: var(--light-gray);
+    grid-area: cardDark;
+}
+
+
+.cardHeader{
+    display: flex;
+    align-items: center;
+}
+
+.cardHeader--image img{
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 2px solid var(--gray);
+    border-radius: 100px;
+}
+
+.cardHeader--info{
+    margin-left: 1rem;
+}
+
+.cardHeader--info p{
+    opacity: 0.5;
+}
+
+.cardBody h4{
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+.cardBody p{
+    font-size: 0.85rem;
+    opacity: 0.75;
+    padding-top: 1rem;
+}
+
+footer{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+  
+
+    .container{
+        margin-top: 10em;
+        height: 100%;
+        width: auto;
+        
+    }
+
+    .card.cardPrimary{
+        grid-row: span 1;
+        grid-column: span 4;
+    }
+
+    .card.cardGrey,
+    .card.cardDark{
+        grid-row: span 2;
+        grid-column: span 4;
+    }
+
+    .card.cardLight{
+        grid-row: span 1;
+        grid-column: span 4;
+    }
+
+    .card.cardLong{
+        grid-row: span 4;
+        grid-column: span 4;
+    }
+  }
